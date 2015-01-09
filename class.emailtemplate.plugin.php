@@ -31,12 +31,10 @@ $PluginInfo['EmailTemplate'] = array(
 	'License' => 'GPLv3'
 );
 
-class EmailTemplate extends Gdn_Plugin {
+class EmailTemplatePlugin extends Gdn_Plugin {
 
 	public function SettingsController_EmailTemplate_Create($Sender) {
 		$Sender->AddSideMenu('settings/emailtemplatename');
-		$this->_AddResources($Sender);
-
 
 		if ($Sender->Form->IsPostBack()) {
 			Gdn::SQL()->Insert('EmailTemplate', array(
@@ -58,15 +56,7 @@ class EmailTemplate extends Gdn_Plugin {
 		$Sender->Title($this->GetPluginName() . ' ' . T('Settings'));
 		$Sender->Render($this->GetView('settings.php'));
 	}
-	
-    public function EntryController_Register_Handler($Sender) {
-      $this->_AddResources($Sender);
-    }
-    
-	private function _AddResources($Sender) {
 
-	}
-	
 	public function Setup() {
       $this->Structure();
 	}
@@ -126,12 +116,4 @@ class EmailTemplate extends Gdn_Plugin {
 	public function Gdn_Dispatcher_BeforeDispatch_Handler($Sender) {
 	   require_once 'plugins/EmailTemplate/class.email.php';
 	}
-
-
-	   protected function Settings_Index($Sender, $Args) {
-      $Providers = self::GetProvider();
-      $Sender->SetData('Providers', $Providers);
-      $Sender->Render('Settings', '', 'plugins/jsconnect');
-   }
-
 }
