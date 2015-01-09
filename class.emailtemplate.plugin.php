@@ -113,7 +113,4 @@ class EmailTemplatePlugin extends Gdn_Plugin {
 
 	}
 
-	public function Gdn_Dispatcher_BeforeDispatch_Handler($Sender) {
-	   require_once 'plugins/EmailTemplate/class.email.php';
-	}
 }
