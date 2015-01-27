@@ -76,7 +76,7 @@ class EmailTemplatePlugin extends Gdn_Plugin {
 				   ->From('EmailTemplate cm')
 				   ->Get();
 
-		if (empty($values->Result()))
+		if ($values->Result() == false)
 		Gdn::SQL()->Insert('EmailTemplate', array(
 		   'header' => "<html>
                       <head>
