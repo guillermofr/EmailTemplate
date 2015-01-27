@@ -16,7 +16,7 @@
 $PluginInfo['EmailTemplate'] = array(
 	'Name' => 'Email Templates',
 	'Description' => 'Change email templates.',
-	'Version' => '0.2',
+	'Version' => '0.3',
 	'RequiredApplications' => array('Vanilla' => '2.0.18.8'),
 	'RequiredTheme' => FALSE,
 	'RequiredPlugins' => FALSE,
